@@ -14,6 +14,8 @@ namespace FolderBackuper
         [STAThread]
         static void Main()
         {
+            Backuper backuper = new Backuper();
+            backuper.Backup();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FolderBackup());

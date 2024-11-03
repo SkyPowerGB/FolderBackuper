@@ -72,6 +72,9 @@ namespace FolderBackuper
             AppTelDataModel model = AppTelDataModelFileMngr.ReadAllAppSettings();
             if (model.FoldersToBackup == null) { model.FoldersToBackup = new List<string>(); }
             model.FoldersToBackup.Add(tbFolderPath.Text);
+
+            Console.WriteLine(FolderFunctionHelper.GetBackupsFolderPath(true, tbFolderPath.Text));
+
             AppTelDataModelFileMngr.SaveNewAppSettings(model);
             lbFoldersList.DataSource= model.FoldersToBackup;
             tbFolderPath.Text = "";
