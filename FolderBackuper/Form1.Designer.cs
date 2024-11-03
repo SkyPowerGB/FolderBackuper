@@ -1,6 +1,6 @@
 ﻿namespace FolderBackuper
 {
-    partial class Form1
+    partial class FolderBackup
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,15 @@
         {
             this.lbFoldersList = new System.Windows.Forms.ListBox();
             this.tbBackupsPath = new System.Windows.Forms.TextBox();
-            this.tbFolderPath = new System.Windows.Forms.TextBox();
             this.btnSelectFolderPath = new System.Windows.Forms.Button();
             this.btnAddFolderPath = new System.Windows.Forms.Button();
             this.btnSelectBackupPath = new System.Windows.Forms.Button();
             this.btnRemoveFolderPath = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbFolderPath = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbFoldersList
@@ -56,13 +56,6 @@
             this.tbBackupsPath.Size = new System.Drawing.Size(206, 20);
             this.tbBackupsPath.TabIndex = 2;
             // 
-            // tbFolderPath
-            // 
-            this.tbFolderPath.Location = new System.Drawing.Point(15, 43);
-            this.tbFolderPath.Name = "tbFolderPath";
-            this.tbFolderPath.Size = new System.Drawing.Size(206, 20);
-            this.tbFolderPath.TabIndex = 4;
-            // 
             // btnSelectFolderPath
             // 
             this.btnSelectFolderPath.Location = new System.Drawing.Point(227, 43);
@@ -71,6 +64,7 @@
             this.btnSelectFolderPath.TabIndex = 5;
             this.btnSelectFolderPath.Text = "Odaberi";
             this.btnSelectFolderPath.UseVisualStyleBackColor = true;
+            this.btnSelectFolderPath.Click += new System.EventHandler(this.btnSelectFolderPath_Click);
             // 
             // btnAddFolderPath
             // 
@@ -80,6 +74,7 @@
             this.btnAddFolderPath.TabIndex = 6;
             this.btnAddFolderPath.Text = "Dodaj";
             this.btnAddFolderPath.UseVisualStyleBackColor = true;
+            this.btnAddFolderPath.Click += new System.EventHandler(this.btnAddFolderPath_Click);
             // 
             // btnSelectBackupPath
             // 
@@ -89,6 +84,7 @@
             this.btnSelectBackupPath.TabIndex = 7;
             this.btnSelectBackupPath.Text = "odaberi";
             this.btnSelectBackupPath.UseVisualStyleBackColor = true;
+            this.btnSelectBackupPath.Click += new System.EventHandler(this.btnSelectBackupPath_Click);
             // 
             // btnRemoveFolderPath
             // 
@@ -98,6 +94,7 @@
             this.btnRemoveFolderPath.TabIndex = 8;
             this.btnRemoveFolderPath.Text = "Makni";
             this.btnRemoveFolderPath.UseVisualStyleBackColor = true;
+            this.btnRemoveFolderPath.Click += new System.EventHandler(this.btnRemoveFolderPath_Click);
             // 
             // label1
             // 
@@ -107,16 +104,6 @@
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Popis datoteka ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Putanja do datoteke";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -135,8 +122,26 @@
             this.btnSettings.TabIndex = 12;
             this.btnSettings.Text = "postavke";
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
-            // Form1
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Putanja do datoteke";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbFolderPath
+            // 
+            this.tbFolderPath.Location = new System.Drawing.Point(15, 43);
+            this.tbFolderPath.Name = "tbFolderPath";
+            this.tbFolderPath.Size = new System.Drawing.Size(206, 20);
+            this.tbFolderPath.TabIndex = 4;
+            // 
+            // FolderBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -152,7 +157,7 @@
             this.Controls.Add(this.tbFolderPath);
             this.Controls.Add(this.tbBackupsPath);
             this.Controls.Add(this.lbFoldersList);
-            this.Name = "Form1";
+            this.Name = "FolderBackup";
             this.Text = "DataBackup";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -164,15 +169,15 @@
 
         private System.Windows.Forms.ListBox lbFoldersList;
         private System.Windows.Forms.TextBox tbBackupsPath;
-        private System.Windows.Forms.TextBox tbFolderPath;
         private System.Windows.Forms.Button btnSelectFolderPath;
         private System.Windows.Forms.Button btnAddFolderPath;
         private System.Windows.Forms.Button btnSelectBackupPath;
         private System.Windows.Forms.Button btnRemoveFolderPath;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbFolderPath;
     }
 }
 

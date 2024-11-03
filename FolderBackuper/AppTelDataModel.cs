@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FolderBackuper
 {
-    internal class AppTelDataModel
+    public class AppTelDataModel
     {
         public List<string> FoldersToBackup { get; set; }
 
@@ -14,7 +14,13 @@ namespace FolderBackuper
 
         public string BackupsPath {  get; set; }
 
+        public bool SaveSeperate { get; set; }
 
+        public bool SaveOnStartup { get; set; }
+
+        public int numOfDays {  get; set; }
+        public int numOfHours { get; set; }
+        public int numOfMonths { get; set; }
 
 
     }
