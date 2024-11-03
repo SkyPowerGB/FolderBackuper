@@ -23,10 +23,13 @@ namespace FolderBackuper
             this.StartPosition = FormStartPosition.CenterScreen;
             if (md == null) { md = new AppTelDataModel(); }
             tbBackupsPath.Text = md.BackupsPath;
-            foreach (string fp in md.FoldersToBackup) {
-            lbFoldersList.Items.Add(fp);
+            if (md.FoldersToBackup != null)
+            {
+                foreach (string fp in md.FoldersToBackup)
+                {
+                    lbFoldersList.Items.Add(fp);
+                }
             }
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
