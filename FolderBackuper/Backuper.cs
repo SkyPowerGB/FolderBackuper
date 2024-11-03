@@ -10,6 +10,8 @@ namespace FolderBackuper
     public class Backuper
     {
         public Backuper() { }
+
+        public bool StopBackuper { get; set; } = false;
         public void Backup() { 
         var model=AppTelDataModelFileMngr.ReadAllAppSettings();
             if (model.SaveOnStartup)
@@ -30,24 +32,9 @@ namespace FolderBackuper
                 AppTelDataModelFileMngr.SaveNewAppSettings(model);
             }
             else {
-               
-             
-                if (model.LastBackup == new DateTime()) { Console.WriteLine("backup now");
-                    CopyFolders(model);
-                    model.LastBackup = DateTime.Now;
-                    AppTelDataModelFileMngr.SaveNewAppSettings(model);
-                    return;
-                }
-                var nextBackup = model.LastBackup;
-                nextBackup= nextBackup.AddDays(model.numOfDays);
-                nextBackup= nextBackup.AddHours(model.numOfHours);
-                nextBackup=nextBackup.AddMonths(model.numOfMonths);
 
-                var result=DateTime.Compare(nextBackup, DateTime.Now);
-
-                if (result >= 0) {
-                CopyFolders(model);
-                }
+                Task.Run(()=>BackupInterval(model));
+            
 
             }
 
@@ -57,8 +44,49 @@ namespace FolderBackuper
         
         }
 
-        public void BackupInterval(AppTelDataModel model) { }
+        private void PerformImmediateBackup(AppTelDataModel model)
+        {
+            var folders = model.FoldersToBackup;
+            if (string.IsNullOrWhiteSpace(model.BackupsPath) || !Directory.Exists(model.BackupsPath))
+            {
+                Console.WriteLine("Invalid backup path.");
+                return;
+            }
 
+            foreach (var folder in folders)
+            {
+                if (!string.IsNullOrWhiteSpace(folder) && Directory.Exists(folder))
+                {
+                    FolderFunctionHelper.CopyFolderToBackup(folder, model.BackupsPath, !model.SaveSeperate);
+                }
+            }
+            model.LastBackup = DateTime.Now;
+            AppTelDataModelFileMngr.SaveNewAppSettings(model);
+        }
+
+        public async Task BackupInterval(AppTelDataModel model)
+        {
+            while (!StopBackuper)
+            {
+                DateTime nextBackup = model.LastBackup
+                    .AddDays(model.numOfDays)
+                    .AddHours(model.numOfHours)
+                    .AddMonths(model.numOfMonths);
+
+                // Check if the next backup time is due
+                if (DateTime.Now >= nextBackup)
+                {
+                    Console.WriteLine("Performing scheduled backup...");
+                    CopyFolders(model);
+                    model.LastBackup = DateTime.Now; // Update last backup time
+                    AppTelDataModelFileMngr.SaveNewAppSettings(model);
+                }
+
+                // Delay for a while before checking again
+                // Adjust this delay time to your needs
+                await Task.Delay(TimeSpan.FromMinutes(1)); // Check every minute
+            }
+        }
         private void CopyFolders(AppTelDataModel model) {
             var folders = model.FoldersToBackup;
             if (model.BackupsPath == null && !Directory.Exists(model.BackupsPath)) { return; }
