@@ -32,9 +32,10 @@ namespace FolderBackuper
                 AppTelDataModelFileMngr.SaveNewAppSettings(model);
             }
             else {
-
-                Task.Run(()=>BackupInterval(model));
-            
+                if (model.numOfHours > 0 || model.numOfDays > 0 || model.numOfMonths > 0)
+                {
+                    Task.Run(() => BackupInterval(model));
+                }
 
             }
 

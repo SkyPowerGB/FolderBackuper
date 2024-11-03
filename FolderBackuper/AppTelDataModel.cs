@@ -16,11 +16,11 @@ namespace FolderBackuper
 
         public bool SaveSeperate { get; set; }
 
-        public bool SaveOnStartup { get; set; }
+        public bool SaveOnStartup { get; set; } = true;
 
         public int numOfDays {  get; set; }
         public int numOfHours { get; set; }
-        public int numOfMonths { get; set; }
+        public int numOfMonths { get; set; } = 1;
 
 
     }
