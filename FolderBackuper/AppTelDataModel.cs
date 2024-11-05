@@ -22,6 +22,8 @@ namespace FolderBackuper
         public int numOfHours { get; set; }
         public int numOfMonths { get; set; } = 1;
 
+        public int numOfMinutes { get; set; }
+
 
     }
 }

@@ -94,8 +94,11 @@ namespace FolderBackuper
                 lbFoldersList.Items.Remove(lbFoldersList.SelectedItem.ToString());
             }
         }
-    
-    
-    
+
+        private void btnKopiraj_Click(object sender, EventArgs e)
+        {
+            Backuper bc=new Backuper();
+            bc.PerformImmediateBackup(AppTelDataModelFileMngr.ReadAllAppSettings());
+        }
     }
 }

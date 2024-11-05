@@ -32,7 +32,7 @@ namespace FolderBackuper
                 AppTelDataModelFileMngr.SaveNewAppSettings(model);
             }
             else {
-                if (model.numOfHours > 0 || model.numOfDays > 0 || model.numOfMonths > 0)
+                if (model.numOfHours > 0 || model.numOfDays > 0 || model.numOfMonths > 0|| model.numOfMinutes>0)
                 {
                     Task.Run(() => BackupInterval(model));
                 }
@@ -45,7 +45,7 @@ namespace FolderBackuper
         
         }
 
-        private void PerformImmediateBackup(AppTelDataModel model)
+        public void PerformImmediateBackup(AppTelDataModel model)
         {
             var folders = model.FoldersToBackup;
             if (string.IsNullOrWhiteSpace(model.BackupsPath) || !Directory.Exists(model.BackupsPath))
@@ -70,6 +70,7 @@ namespace FolderBackuper
             while (!StopBackuper)
             {
                 DateTime nextBackup = model.LastBackup
+                    .AddMinutes(model.numOfMinutes)
                     .AddDays(model.numOfDays)
                     .AddHours(model.numOfHours)
                     .AddMonths(model.numOfMonths);

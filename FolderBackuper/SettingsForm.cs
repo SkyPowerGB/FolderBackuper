@@ -23,6 +23,7 @@ namespace FolderBackuper
             tbD.Text = TelDataModel.numOfDays.ToString();
             tbH.Text = TelDataModel.numOfHours.ToString();
             tbM.Text = TelDataModel.numOfMonths.ToString();
+            tbMin.Text=TelDataModel.numOfMinutes.ToString();
             chckSaveSep.Checked = TelDataModel.SaveSeperate;
             
             if (TelDataModel.SaveOnStartup)
@@ -109,13 +110,26 @@ namespace FolderBackuper
             model.numOfMonths=getNumber(tbM.Text);
             model.SaveSeperate=chckSaveSep.Checked;
             model.SaveOnStartup=rbStartupSave.Checked;
+            model.numOfMinutes=getNumber(tbMin.Text);
      
 
             AppTelDataModelFileMngr.SaveNewAppSettings(model);
 
             this.Close();
         }
-   
-    
+
+        private void btnMinP_Click(object sender, EventArgs e)
+        {
+            var num = getNumber(tbMin.Text);
+            num++;
+            tbMin.Text = num.ToString();
+        }
+
+        private void btnMinN_Click(object sender, EventArgs e)
+        {
+            var num = getNumber(tbMin.Text);
+            num--;
+            tbMin.Text = num.ToString();
+        }
     }
 }
