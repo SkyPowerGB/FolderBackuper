@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FolderBackup));
             this.lbFoldersList = new System.Windows.Forms.ListBox();
             this.tbBackupsPath = new System.Windows.Forms.TextBox();
             this.btnSelectFolderPath = new System.Windows.Forms.Button();
@@ -45,27 +46,23 @@
             // lbFoldersList
             // 
             this.lbFoldersList.FormattingEnabled = true;
-            this.lbFoldersList.ItemHeight = 16;
-            this.lbFoldersList.Location = new System.Drawing.Point(20, 114);
-            this.lbFoldersList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbFoldersList.Location = new System.Drawing.Point(15, 93);
             this.lbFoldersList.Name = "lbFoldersList";
-            this.lbFoldersList.Size = new System.Drawing.Size(368, 404);
+            this.lbFoldersList.Size = new System.Drawing.Size(277, 329);
             this.lbFoldersList.TabIndex = 0;
             // 
             // tbBackupsPath
             // 
-            this.tbBackupsPath.Location = new System.Drawing.Point(20, 646);
-            this.tbBackupsPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbBackupsPath.Location = new System.Drawing.Point(15, 525);
             this.tbBackupsPath.Name = "tbBackupsPath";
-            this.tbBackupsPath.Size = new System.Drawing.Size(273, 22);
+            this.tbBackupsPath.Size = new System.Drawing.Size(206, 20);
             this.tbBackupsPath.TabIndex = 2;
             // 
             // btnSelectFolderPath
             // 
-            this.btnSelectFolderPath.Location = new System.Drawing.Point(303, 53);
-            this.btnSelectFolderPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelectFolderPath.Location = new System.Drawing.Point(227, 43);
             this.btnSelectFolderPath.Name = "btnSelectFolderPath";
-            this.btnSelectFolderPath.Size = new System.Drawing.Size(87, 28);
+            this.btnSelectFolderPath.Size = new System.Drawing.Size(65, 23);
             this.btnSelectFolderPath.TabIndex = 5;
             this.btnSelectFolderPath.Text = "Odaberi";
             this.btnSelectFolderPath.UseVisualStyleBackColor = true;
@@ -73,10 +70,9 @@
             // 
             // btnAddFolderPath
             // 
-            this.btnAddFolderPath.Location = new System.Drawing.Point(397, 53);
-            this.btnAddFolderPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddFolderPath.Location = new System.Drawing.Point(298, 43);
             this.btnAddFolderPath.Name = "btnAddFolderPath";
-            this.btnAddFolderPath.Size = new System.Drawing.Size(100, 28);
+            this.btnAddFolderPath.Size = new System.Drawing.Size(75, 23);
             this.btnAddFolderPath.TabIndex = 6;
             this.btnAddFolderPath.Text = "Dodaj";
             this.btnAddFolderPath.UseVisualStyleBackColor = true;
@@ -84,10 +80,9 @@
             // 
             // btnSelectBackupPath
             // 
-            this.btnSelectBackupPath.Location = new System.Drawing.Point(303, 646);
-            this.btnSelectBackupPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelectBackupPath.Location = new System.Drawing.Point(227, 525);
             this.btnSelectBackupPath.Name = "btnSelectBackupPath";
-            this.btnSelectBackupPath.Size = new System.Drawing.Size(87, 25);
+            this.btnSelectBackupPath.Size = new System.Drawing.Size(65, 20);
             this.btnSelectBackupPath.TabIndex = 7;
             this.btnSelectBackupPath.Text = "odaberi";
             this.btnSelectBackupPath.UseVisualStyleBackColor = true;
@@ -95,10 +90,9 @@
             // 
             // btnRemoveFolderPath
             // 
-            this.btnRemoveFolderPath.Location = new System.Drawing.Point(397, 114);
-            this.btnRemoveFolderPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemoveFolderPath.Location = new System.Drawing.Point(298, 93);
             this.btnRemoveFolderPath.Name = "btnRemoveFolderPath";
-            this.btnRemoveFolderPath.Size = new System.Drawing.Size(100, 28);
+            this.btnRemoveFolderPath.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveFolderPath.TabIndex = 8;
             this.btnRemoveFolderPath.Text = "Makni";
             this.btnRemoveFolderPath.UseVisualStyleBackColor = true;
@@ -107,29 +101,26 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 86);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(15, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 16);
+            this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Popis datoteka ";
+            this.label1.Text = "Popis Mapa";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 626);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(12, 509);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 16);
+            this.label3.Size = new System.Drawing.Size(92, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "Lokacije za kopije";
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(397, 7);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSettings.Location = new System.Drawing.Point(298, 6);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(100, 28);
+            this.btnSettings.Size = new System.Drawing.Size(75, 23);
             this.btnSettings.TabIndex = 12;
             this.btnSettings.Text = "postavke";
             this.btnSettings.UseVisualStyleBackColor = true;
@@ -138,28 +129,25 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 20);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(15, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 16);
+            this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Putanja do datoteke";
+            this.label2.Text = "Putanja do mape";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbFolderPath
             // 
-            this.tbFolderPath.Location = new System.Drawing.Point(20, 53);
-            this.tbFolderPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFolderPath.Location = new System.Drawing.Point(15, 43);
             this.tbFolderPath.Name = "tbFolderPath";
-            this.tbFolderPath.Size = new System.Drawing.Size(273, 22);
+            this.tbFolderPath.Size = new System.Drawing.Size(206, 20);
             this.tbFolderPath.TabIndex = 4;
             // 
             // btnKopiraj
             // 
-            this.btnKopiraj.Location = new System.Drawing.Point(397, 163);
-            this.btnKopiraj.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKopiraj.Location = new System.Drawing.Point(298, 132);
             this.btnKopiraj.Name = "btnKopiraj";
-            this.btnKopiraj.Size = new System.Drawing.Size(100, 28);
+            this.btnKopiraj.Size = new System.Drawing.Size(75, 23);
             this.btnKopiraj.TabIndex = 13;
             this.btnKopiraj.Text = "Kopiraj";
             this.btnKopiraj.UseVisualStyleBackColor = true;
@@ -167,9 +155,9 @@
             // 
             // FolderBackup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 686);
+            this.ClientSize = new System.Drawing.Size(398, 557);
             this.Controls.Add(this.btnKopiraj);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.label3);
@@ -182,7 +170,7 @@
             this.Controls.Add(this.tbFolderPath);
             this.Controls.Add(this.tbBackupsPath);
             this.Controls.Add(this.lbFoldersList);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FolderBackup";
             this.Text = "DataBackup";
             this.Load += new System.EventHandler(this.Form1_Load);

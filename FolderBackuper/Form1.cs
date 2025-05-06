@@ -15,10 +15,16 @@ namespace FolderBackuper
     {
 
 
-        
+        private NotifyIcon trayIcon;
+        private ContextMenuStrip trayMenu;
+        private NotifyIcon notify;
+       
+
         public FolderBackup()
         {
             InitializeComponent();
+            InitializeTray();
+            
             AppTelDataModel md=AppTelDataModelFileMngr.ReadAllAppSettings();
             this.StartPosition = FormStartPosition.CenterScreen;
             if (md == null) { md = new AppTelDataModel(); }
@@ -30,7 +36,90 @@ namespace FolderBackuper
                     lbFoldersList.Items.Add(fp);
                 }
             }
+
+
+
         }
+
+        
+        private void InitializeTray()
+        {
+            
+            trayMenu = new ContextMenuStrip();
+            trayMenu.Items.Add("Exit", null, Exit_Click);
+            trayMenu.Items.Add("Open", null, Open_Click);
+
+         
+            trayIcon = new NotifyIcon()
+            {
+                Icon = new Icon("assets/FolderBackuperIcon.ico"),
+                ContextMenuStrip = trayMenu,
+                Visible = true,
+                Text = "Folder Backuper"
+            };
+
+           
+          
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            trayIcon.Visible = false; 
+            Application.Exit();
+        }
+
+        
+        protected override void OnLoad(EventArgs e)
+        {
+
+
+            base.OnLoad(e);
+        
+           
+                this.Show();  
+
+        }
+
+        private void Open_Click(object sender, EventArgs e)
+        {
+          
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+
+                DialogResult result = MessageBox.Show(
+                    "Do you want to eixt? or your app will minimize to tray ",
+                    "Exit Conformation",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                   e.Cancel = true;
+
+                    Exit_Click(e,e);
+                }
+                else
+                {
+                    e.Cancel = true;
+                    this.Hide();
+
+                }
+
+         }
+
+
+             
+            
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -74,6 +163,7 @@ namespace FolderBackuper
             
             AppTelDataModel model = AppTelDataModelFileMngr.ReadAllAppSettings();
             if (model.FoldersToBackup == null) { model.FoldersToBackup = new List<string>(); }
+            if (tbFolderPath.Text == null) { return; }
             model.FoldersToBackup.Add(tbFolderPath.Text);
 
             Console.WriteLine(FolderFunctionHelper.GetBackupsFolderPath(true, tbFolderPath.Text));

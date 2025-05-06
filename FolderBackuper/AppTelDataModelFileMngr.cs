@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FolderBackuper
 {
@@ -16,6 +17,9 @@ namespace FolderBackuper
         private static string appDataPath=Path.Combine(projectPath, dirName);
         private static string appDataFilePath=Path.Combine(appDataPath, appDataFilename);
 
+
+        private NotifyIcon trayIcon;
+        private ContextMenuStrip trayMenu;
 
         public static void SaveNewAppSettings(AppTelDataModel model) {
             if (!Directory.Exists(appDataPath)) { Directory.CreateDirectory(appDataPath); }
@@ -37,7 +41,8 @@ namespace FolderBackuper
         }
         
 
-
+       
 
     }
 }
+
