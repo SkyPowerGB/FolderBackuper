@@ -39,7 +39,7 @@ A simple Windows desktop app that allows users to back up selected folders into 
 
 - This app performs full folder copies and overwrites existing backups.
   - ⚠️ This can be inefficient for large folders or frequent backups.
-  - There is no deduplication or incremental backup logic implemented.
+
 
 ## 📦 Status
 
