@@ -20,9 +20,10 @@ A simple Windows desktop app that allows users to back up selected folders into 
 
 
 
-## 🧩 Libraries Used
+## 🧩 Technologies & Libraries
 
-- [Newtonsoft.Json](https://www.newtonsoft.com/json) — for JSON serialization
+- **.NET Framework** (WinForms )
+- [Newtonsoft.Json](https://www.newtonsoft.com/json) — JSON serialization
 
 ---
 
