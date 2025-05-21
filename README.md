@@ -18,13 +18,7 @@ A simple Windows desktop app that allows users to back up selected folders into 
 
 ---
 
-## ⚙️ Installer
 
-An installer is included in the project. It:
-- Adds a shortcut to the **Startup** folder (runs automatically on system startup)
-- Adds a shortcut to the **Desktop**
-
----
 
 ## 🧩 Libraries Used
 
