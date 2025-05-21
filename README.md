@@ -34,11 +34,11 @@ A simple Windows desktop app that allows users to back up selected folders into 
 - ❌ Crashes when adding duplicate folders
 
 ---
+## ⚠️ Behavior Notes & Limitations
 
-## ⚠️ Limitations
-
-- This app performs full folder copies and overwrites existing backups.
-  - ⚠️ This can be inefficient for large folders or frequent backups.
+- Backups **overwrite** the contents of the destination folder by default.
+- Alternatively, backups can be saved to **separate timestamped folders** for versioning.
+- ⚠️ **Warning**: For large folders or frequent backups, this process may be inefficient. The app performs full copies each time without incremental or differential backup optimizations.
 
 
 ## 📦 Status
