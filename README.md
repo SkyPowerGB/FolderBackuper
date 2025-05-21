@@ -1,4 +1,4 @@
-# 📁 Folder Backup Utility
+# 📁 Folder Backup 
 
 > ⚠️ **[Warning]** This project is no longer in active development or maintenance.
 
