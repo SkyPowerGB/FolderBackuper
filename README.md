@@ -35,6 +35,12 @@ A simple Windows desktop app that allows users to back up selected folders into 
 
 ---
 
+## ⚠️ Limitations
+
+- This app performs full folder copies and overwrites existing backups.
+  - ⚠️ This can be inefficient for large folders or frequent backups.
+  - There is no deduplication or incremental backup logic implemented.
+
 ## 📦 Status
 
 This project is archived and no longer maintained. It was created for personal use .
